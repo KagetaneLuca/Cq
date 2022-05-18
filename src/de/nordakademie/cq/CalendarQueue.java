@@ -8,6 +8,7 @@ import java.util.Comparator;
 
 public class CalendarQueue implements ICalendarQueue<Object> {
 //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
+    private Event[] bucketArray = new Event[8];
     private List<Event> bucket = new ArrayList<>();
     private List<List<Event>> bucketList = new ArrayList<>();
     private int size;
@@ -21,22 +22,6 @@ public class CalendarQueue implements ICalendarQueue<Object> {
      */
     @Override
     public void enqueue(Double time, Object eventDes) {
-//        if (bucket.size() > 10) { // move e from linkedlist to binarySearchTree
-////            System.out.println("queue größer 10");
-//            for (int i = 0; i < bucket.size(); i++) {
-//                tree.insert(new de.nordakademie.safe.Event(bucket.get(i).getTimestamp(), bucket.get(i).getEventDescription()));
-//            }
-//        } else if (tree.size(tree) > 0) { // insert into BinarySearchTree
-////            System.out.println("insert tree");
-//            tree.insert(new de.nordakademie.safe.Event(time, eventDes.toString()));
-//
-//        } else { //  insert into linkedList
-////            System.out.println("insert linkedList");
-//            comparatorEnqueue(time, eventDes);
-//        }
-
-
-
 
         Event event = new Event(time, eventDes.toString());
         int bucketNumber = (int)(time/0.5D) -1;
