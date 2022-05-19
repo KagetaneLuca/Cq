@@ -2,6 +2,7 @@ package de.nordakademie;
 
 import de.nordakademie.cq.CalendarQueue;
 import de.nordakademie.cq.ExperimentCalenderQueue;
+import de.nordakademie.safe.Event;
 import de.nordakademie.safe.SafeExperimentBin;
 
 import java.util.LinkedList;
@@ -24,6 +25,7 @@ public class Main {
         int repetitions = initialSize / 10; // 10% der Basis Werte reicht als vergleich
         int n = 100;
         int m = 1000;
+//        testEmpty();
         exp3(n, initialSize, repetitions);
         exp2(n, initialSize, repetitions);
 //        exp1(n, initialSize, repetitions);
@@ -73,5 +75,18 @@ public class Main {
 //            System.out.println("initial Time Bin " + i + ": " + experiment.initialize(initialSize));
 //            System.out.println("evaluate Time Bin " + i + ": " + experiment.evaluate(repetitions));
         }
+    }
+    private static void testEmpty(){
+        Event[] bucketArray = new Event[3];
+        bucketArray[0] = new Event(0D, "first");
+        Event[] test = new Event[3];
+        test[0] = new Event(1D, "second");
+        Event[][] bucketListArray = new Event[8][];
+       bucketListArray[0] = bucketArray;
+       bucketListArray[0] = test;
+        System.out.println(bucketListArray[0][0].getEventDescription());
+        System.out.println(bucketListArray[1][0].getEventDescription());
+
+
     }
 }

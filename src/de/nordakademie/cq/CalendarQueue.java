@@ -2,18 +2,18 @@ package de.nordakademie.cq;
 
 import de.nordakademie.IEventQueue;
 import de.nordakademie.safe.Event;
-
-import java.util.*;
-import java.util.Comparator;
+import java.util.Arrays;
 
 public class CalendarQueue implements ICalendarQueue<Object> {
 //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
-    private Event[] bucketArray = new Event[8];
-    private List<Event> bucket = new ArrayList<>();
-    private List<List<Event>> bucketList = new ArrayList<>();
-    private int size;
+    // enqueue with an Object or an array/ List as parameter
+    private Event[] bucketArray;
+
+    private Event[][] bucketListArray = new Event[8][];
     public CalendarQueue(int size) {
-        this.size = size;
+
+        bucketArray = new Event[size * 2];
+        Arrays.fill(bucketListArray,0, bucketListArray.length-1, bucketArray);
     }
 
     /**
@@ -22,48 +22,29 @@ public class CalendarQueue implements ICalendarQueue<Object> {
      */
     @Override
     public void enqueue(Double time, Object eventDes) {
-
-        Event event = new Event(time, eventDes.toString());
+       if(null != bucketArray[bucketArray.length -1]){
+           bucketArray = Arrays.copyOf(bucketArray, bucketArray.length *2);
+       }
         int bucketNumber = (int)(time/0.5D) -1;
-        if (bucketNumber < 0){
+        if (bucketNumber > bucketListArray.length) {
+            bucketListArray = Arrays.copyOf(bucketListArray, bucketListArray.length * 2);
+        }
+        if (bucketNumber < 0){ // past day/ years
 //            System.out.println("Bucket n smaller 0: " + bucketNumber);
         } else{
-            if (bucketList.isEmpty()){
-                bucket.add(event);
-
-
-                bucketList.add(bucketNumber, bucket);
-            } else {
-                bucket = bucketList.get(bucketNumber);
-                bucket.add(event);
-                Collections.sort(bucket, new Comparator<Event>() {
-                    /**
-                     * @param e1 the first object to be compared.
-                     * @param e2 the second object to be compared.
-                     * @return
-                     */
-                    @Override
-                    public int compare(Event e1, Event e2) {
-                        if (e1.getTimestamp() < e2.getTimestamp())
-                            return -1;
-                        else if (e1.getTimestamp() > e2.getTimestamp())
-                            return 1;
-                        return 0;
-                    }
-                });
-                bucketList.remove(bucketNumber);
-                bucketList.add(bucketNumber, bucket);
+                bucketArray = bucketListArray[bucketNumber];
+                bucketArray[0] = new Event(time, eventDes.toString());
+                Arrays.sort(bucketArray, SelfComparator::compare);
+                bucketListArray[bucketNumber] = bucketArray;
             }
         }
-    }
-
 
     /**
      * @return Event that was removed
      */
     @Override
     public IEventQueue.Entry<Object> dequeue() {
-        return new EntryImpl<>(bucketList.get(0).get(0).getTimestamp(), bucketList.get(0).get(0).getEventDescription());
+        return new EntryImpl<>(bucketListArray[0][0].getTimestamp(), bucketListArray[0][0].getEventDescription());
     }
     private static class EntryImpl<Object> implements IEventQueue.Entry<Object> {
 
