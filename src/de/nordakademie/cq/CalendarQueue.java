@@ -8,6 +8,7 @@ import java.util.Comparator;
 
 public class CalendarQueue implements ICalendarQueue<Object> {
 //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
+    // parralel einlesen dataset1 bei ungraden und dataset2 bei geraden
     private List<Event> bucket = new ArrayList<>();
     private List<List<Event>> bucketList = new ArrayList<>();
     private int size;

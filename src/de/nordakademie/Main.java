@@ -4,8 +4,12 @@ import de.nordakademie.cq.CalendarQueue;
 import de.nordakademie.cq.ExperimentCalenderQueue;
 import de.nordakademie.safe.SafeExperimentBin;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+
 /*      initial Time Bin0: 1120099.0
         initial Time Bin0: 2888.428
         initial Time Bin1: 355800.0
@@ -19,10 +23,12 @@ import java.util.List;
         initial Time 99: 1.622788352E9
         initial Time 99: 4294.030303030303 */
 public class Main {
+
+    Map<Integer, Double> timeIni = new HashMap<>();
     public static void main(String[] args) {
-        int initialSize = 1000;
+        int initialSize = 100000;
         int repetitions = initialSize / 10; // 10% der Basis Werte reicht als vergleich
-        int n = 100;
+        int n = 1000;
         int m = 1000;
         exp3(n, initialSize, repetitions);
         exp2(n, initialSize, repetitions);
@@ -51,7 +57,7 @@ public class Main {
             SafeExperimentBin experiment = new SafeExperimentBin();
             iniTime = experiment.initialize(initialSize);
             evaTime = experiment.evaluate(repetitions);
-            if (i == 0 || i == 1 || i == 99) {
+            if (i == 0 || i == 1 || i == 99 || i == 999) {
                 System.out.println("initial Time Bin " + i + ": " + iniTime);
                 System.out.println("evaluate Time Bin " + i + ": " + evaTime);
             }
@@ -62,11 +68,15 @@ public class Main {
     private static void exp3(int n, int initialSize, int repetitions) {
         double iniTime;
         double evaTime;
+        List<Double> initialTimeList = new ArrayList<>();
+        List<Double> evaluateTimeList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             ExperimentCalenderQueue experiment = new ExperimentCalenderQueue();
             iniTime = experiment.initialize(initialSize);
             evaTime = experiment.evaluate(repetitions);
-            if (i == 0 || i == 1 || i == 99) {
+            if (i == 0 || i == 1 || i == 99 || i == 999) {
+                initialTimeList.add(iniTime);
+                evaluateTimeList.add(evaTime);
                 System.out.println("initial Time cal " + i + ": " + iniTime);
                 System.out.println("evaluate Time cal " + i + ": " + evaTime);
             }

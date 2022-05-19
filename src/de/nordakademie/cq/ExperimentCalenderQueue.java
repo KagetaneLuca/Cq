@@ -1,5 +1,6 @@
 package de.nordakademie.cq;
 
+import de.nordakademie.IEventQueue;
 import de.nordakademie.safe.SafeEventQueueBinaryLink;
 
 import java.util.LinkedList;
@@ -27,17 +28,13 @@ public class ExperimentCalenderQueue {
 
             for (int i = 0; i < repetitions; i++) {
                 startTime = System.nanoTime();
-                calendarQueue.enqueue(rand.nextDouble(), new Object());
-                calendarQueue.dequeue();
+                IEventQueue.Entry<Object> event = calendarQueue.dequeue();
+                calendarQueue.enqueue(event.getTime() + rand.nextDouble(), new Object());
                 endTime = System.nanoTime()- startTime;
                 if(times.isEmpty()){
                     times.add(endTime);
-                }
-                for (int j = 0; j < times.size(); j++) {
-                    if (endTime < times.get(j)){
-                        times.add(j, endTime);
-                        break;
-                    }
+                } else {
+                  endTime += times.get(times.size() - 1);
                 }
             }
             return     times.stream().mapToDouble(a -> a).average().getAsDouble();

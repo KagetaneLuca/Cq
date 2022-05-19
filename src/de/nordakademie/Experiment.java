@@ -1,7 +1,9 @@
 package de.nordakademie;
 
+import de.nordakademie.cq.ICalendarQueue;
 import de.nordakademie.dost.IEventQueueImpl;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Experiment {
@@ -9,10 +11,18 @@ public class Experiment {
     private List<Long> times = new LinkedList<>();
    private Random rand = new Random();
 
-    public double initialize(int initialSize){
+   private List<Double> dataset;
+   private List<Double> dataset2;
+
+    public double initialize(int initialSize) {
+        InputGen inputGen = new InputGen();
+        List<Double> doubleList = inputGen.readToList();
+        if (doubleList == null || doubleList.size() > initialSize) {
+            return -1;
+        }
         long startTime = System.nanoTime();
         for (int i = 0; i < initialSize; i++) {
-            eventQueue.enqueue(rand.nextDouble(), new Object());
+            eventQueue.enqueue(doubleList.get(0), new Object());
 
         }
         return  (float)(System.nanoTime() - startTime);
@@ -23,8 +33,8 @@ public class Experiment {
 
         for (int i = 0; i < repetitions; i++) {
             startTime = System.nanoTime();
-            eventQueue.enqueue(rand.nextDouble(), new Object());
-            eventQueue.dequeue();
+           IEventQueue.Entry<Object> event = eventQueue.dequeue();
+            eventQueue.enqueue(event.getTime() + rand.nextDouble(), new Object());
             endTime = System.nanoTime()- startTime;
             if(times.isEmpty()){
                 times.add(endTime);
