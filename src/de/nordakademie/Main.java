@@ -26,9 +26,9 @@ public class Main {
 
     Map<Integer, Double> timeIni = new HashMap<>();
     public static void main(String[] args) {
-        int initialSize = 100000;
+        int initialSize = 1000;
         int repetitions = initialSize / 10; // 10% der Basis Werte reicht als vergleich
-        int n = 1000;
+        int n = 100;
         int m = 1000;
         exp3(n, initialSize, repetitions);
         exp2(n, initialSize, repetitions);

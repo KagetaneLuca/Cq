@@ -1,17 +1,14 @@
-package de.nordakademie;
+package de.nordakademie.generator;
 
+import java.awt.image.BufferedImageFilter;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class InputGen {
-    /*
-        Create an File with Events
-     */
     private List<Double> randomDouble = new ArrayList<>();
-//    private Random rand = new Random();
 
-
+    private Random rand = ThreadLocalRandom.current();
     public static void main(String[] args) {
         int datasetCount = 100000;
         InputGen inputGen = new InputGen();
@@ -20,9 +17,14 @@ public class InputGen {
     }
 
     public void generateDouble(int n){
-        for (int i = 0; i < n; i++) {
-            randomDouble.add(ThreadLocalRandom.current().nextDouble(0, Double.MAX_VALUE));
-
+        randomDouble.add(ThreadLocalRandom.current().nextGaussian());
+        double rdmValue;
+        for (int i = 0; i < n;) {
+            rdmValue = randomDouble.get(i) + ThreadLocalRandom.current().nextGaussian();
+            if (rdmValue >= 0) {
+                randomDouble.add(rdmValue);
+                i++;
+            }
         }
     }
     public void writeToFile(){
@@ -42,13 +44,15 @@ public class InputGen {
     public List<Double> readToList() {
         try {
             List<Double> fileInput = new ArrayList<>();
-            Scanner scanner = new Scanner(new FileReader("datasetRdm.txt"));
-            while (scanner.hasNextLine()) {
-                fileInput.add(scanner.nextDouble());
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("datasetRdm.txt"));
+            while (bufferedReader.ready()) {
+                fileInput.add(Double.valueOf(bufferedReader.readLine()));
             }
             return fileInput;
         } catch (FileNotFoundException e){
             System.err.println("File not found");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return null;
     }

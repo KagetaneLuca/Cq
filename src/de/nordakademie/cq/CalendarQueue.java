@@ -11,9 +11,14 @@ public class CalendarQueue implements ICalendarQueue<Object> {
     // parralel einlesen dataset1 bei ungraden und dataset2 bei geraden
     private List<Event> bucket = new ArrayList<>();
     private List<List<Event>> bucketList = new ArrayList<>();
-    private int size;
     public CalendarQueue(int size) {
-        this.size = size;
+        initialize(size);
+    }
+
+    private void initialize(int size) {
+        for (int i = 0; i < size; i++) {
+            bucketList.add(new ArrayList<Event>());
+        }
     }
 
     /**
@@ -22,35 +27,19 @@ public class CalendarQueue implements ICalendarQueue<Object> {
      */
     @Override
     public void enqueue(Double time, Object eventDes) {
-//        if (bucket.size() > 10) { // move e from linkedlist to binarySearchTree
-////            System.out.println("queue größer 10");
-//            for (int i = 0; i < bucket.size(); i++) {
-//                tree.insert(new de.nordakademie.safe.Event(bucket.get(i).getTimestamp(), bucket.get(i).getEventDescription()));
-//            }
-//        } else if (tree.size(tree) > 0) { // insert into BinarySearchTree
-////            System.out.println("insert tree");
-//            tree.insert(new de.nordakademie.safe.Event(time, eventDes.toString()));
-//
-//        } else { //  insert into linkedList
-////            System.out.println("insert linkedList");
-//            comparatorEnqueue(time, eventDes);
-//        }
-
-
-
-
         Event event = new Event(time, eventDes.toString());
         int bucketNumber = (int)(time/0.5D) -1;
+
         if (bucketNumber < 0){
 //            System.out.println("Bucket n smaller 0: " + bucketNumber);
         } else{
-            if (bucketList.isEmpty()){
-                bucket.add(event);
+            //if (bucketList.isEmpty()){
+              //  bucket.add(event);
 
 
-                bucketList.add(bucketNumber, bucket);
-            } else {
-                bucket = bucketList.get(bucketNumber);
+                //bucketList.add(bucketNumber, bucket);
+            //} else {
+                bucket = bucketList.get(bucketNumber); // intial bucket count missing
                 bucket.add(event);
                 Collections.sort(bucket, new Comparator<Event>() {
                     /**
@@ -70,7 +59,7 @@ public class CalendarQueue implements ICalendarQueue<Object> {
                 bucketList.remove(bucketNumber);
                 bucketList.add(bucketNumber, bucket);
             }
-        }
+       // }
     }
 
 

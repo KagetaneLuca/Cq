@@ -1,9 +1,8 @@
 package de.nordakademie;
 
-import de.nordakademie.cq.ICalendarQueue;
 import de.nordakademie.dost.IEventQueueImpl;
+import de.nordakademie.generator.InputGen;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Experiment {
@@ -16,12 +15,13 @@ public class Experiment {
 
     public double initialize(int initialSize) {
         InputGen inputGen = new InputGen();
+
         List<Double> doubleList = inputGen.readToList();
         if (doubleList == null || doubleList.size() > initialSize) {
             return -1;
         }
         long startTime = System.nanoTime();
-        for (int i = 0; i < initialSize; i++) {
+        for (int i = 0; i < initialSize && i < dataset.size(); i++) {
             eventQueue.enqueue(doubleList.get(0), new Object());
 
         }
