@@ -41,11 +41,11 @@ public class InputGen {
         }
     }
 
-    public List<Double> readToList() {
+    public List<Double> readToList(String filename, long size) {
         try {
             List<Double> fileInput = new ArrayList<>();
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("datasetRdm.txt"));
-            while (bufferedReader.ready()) {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+            for (int i = 0; i <= size && bufferedReader.ready(); i++) {
                 fileInput.add(Double.valueOf(bufferedReader.readLine()));
             }
             return fileInput;

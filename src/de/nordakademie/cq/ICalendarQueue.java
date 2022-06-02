@@ -4,7 +4,7 @@ import de.nordakademie.model.event.IEventQueue;
 
 public interface ICalendarQueue<E> {
 
-    void enqueue (Double time, E event);
+    void enqueue (Double time, String event);
 
     IEventQueue.Entry<E> dequeue ();
 

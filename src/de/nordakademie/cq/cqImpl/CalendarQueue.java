@@ -1,75 +1,55 @@
 package de.nordakademie.cq.cqImpl;
 
-import de.nordakademie.model.event.IEventQueue;
+
 import de.nordakademie.cq.ICalendarQueue;
+import de.nordakademie.cq.cqImpl.Splaytree.Tree;
 import de.nordakademie.model.event.impl.Event;
+import de.nordakademie.model.eventqueue.IEventQueue;
 
 import java.util.*;
-import java.util.Comparator;
 
 public class CalendarQueue implements ICalendarQueue<Object> {
-//    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
-    // parralel einlesen dataset1 bei ungraden und dataset2 bei geraden
-    private List<Event> bucket = new ArrayList<>();
-    private List<List<Event>> bucketList = new ArrayList<>();
+    //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
+    // nearFuture z.B. 1/10 vom SplayTree
+    private List<Event> farFutrure = new LinkedList<>();
+    private List<Event> nearFuture = new ArrayList<>();
+    private Splaytree.Tree tree = new Splaytree.Tree();
+    private long size;
     public CalendarQueue(int size) {
-        initialize(size);
+        this.size = size;
     }
 
-    private void initialize(int size) {
-        for (int i = 0; i < size; i++) {
-            bucketList.add(new ArrayList<Event>());
-        }
-    }
 
     /**
      * @param time
      * @param eventDes
      */
     @Override
-    public void enqueue(Double time, Object eventDes) {
-        Event event = new Event(time, eventDes.toString());
-        int bucketNumber = (int)(time/0.5D) -1;
+    public void enqueue(Double time, String eventDes) {
+        if(tree.size(tree) > size){
 
-        if (bucketNumber < 0){
-//            System.out.println("Bucket n smaller 0: " + bucketNumber);
-        } else{
-            //if (bucketList.isEmpty()){
-              //  bucket.add(event);
-
-
-                //bucketList.add(bucketNumber, bucket);
-            //} else {
-                bucket = bucketList.get(bucketNumber); // intial bucket count missing
-                bucket.add(event);
-                Collections.sort(bucket, new Comparator<Event>() {
-                    /**
-                     * @param e1 the first object to be compared.
-                     * @param e2 the second object to be compared.
-                     * @return
-                     */
-                    @Override
-                    public int compare(Event e1, Event e2) {
-                        if (e1.getTimestamp() < e2.getTimestamp())
-                            return -1;
-                        else if (e1.getTimestamp() > e2.getTimestamp())
-                            return 1;
-                        return 0;
-                    }
-                });
-                bucketList.remove(bucketNumber);
-                bucketList.add(bucketNumber, bucket);
-            }
-       // }
+            farFutrure.add(new Event(time, eventDes));
+        }
+        if (nearFuture.size() < tree.size(tree)/ 100 || nearFuture.size() < 10) { // move e from splaytree to arraylist
+            tree.insert(new Event(time, eventDes));
+//            nearFutureEnqueue();
+            Collections.sort(nearFuture, Comparator.comparingDouble(Event::getTimestamp));
+        }
     }
 
+    private void nearFutureEnqueue() {
+        for (int i = 0; i < tree.size(tree) /10 - nearFuture.size(); i++) {
+            nearFuture.add(tree.smallestElement(tree));
+        }
+    }
 
     /**
      * @return Event that was removed
      */
     @Override
     public IEventQueue.Entry<Object> dequeue() {
-        return new EntryImpl<>(bucketList.get(0).get(0).getTimestamp(), bucketList.get(0).get(0).getEventDescription());
+        Splaytree.Tree temp = tree.deleteKey(tree.smallestElement(tree));
+        return new EntryImpl<>(temp.key.getTimestamp(), temp.key.getEventDescription());
     }
     private static class EntryImpl<Object> implements IEventQueue.Entry<Object> {
 
