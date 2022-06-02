@@ -1,15 +1,12 @@
-package de.nordakademie.cq;
+package de.nordakademie.experiment;
 
-import de.nordakademie.IEventQueue;
+import de.nordakademie.model.event.IEventQueue;
+import de.nordakademie.cq.cqImpl.CalendarQueue;
 import de.nordakademie.generator.InputGen;
-import de.nordakademie.safe.SafeEventQueueBinaryLink;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ExperimentCalenderQueue {

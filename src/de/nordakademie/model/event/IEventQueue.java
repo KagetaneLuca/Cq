@@ -1,4 +1,4 @@
-package de.nordakademie;
+package de.nordakademie.model.event;
 
 public interface IEventQueue<E> {
     void enqueue (Double time, E event);

@@ -1,4 +1,4 @@
-package de.nordakademie.safe;
+package de.nordakademie.model.event.impl;
 
 public class Event {
     private final double timestamp;

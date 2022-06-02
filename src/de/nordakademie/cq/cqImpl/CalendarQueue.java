@@ -1,7 +1,8 @@
-package de.nordakademie.cq;
+package de.nordakademie.cq.cqImpl;
 
-import de.nordakademie.IEventQueue;
-import de.nordakademie.safe.Event;
+import de.nordakademie.model.event.IEventQueue;
+import de.nordakademie.cq.ICalendarQueue;
+import de.nordakademie.model.event.impl.Event;
 
 import java.util.*;
 import java.util.Comparator;

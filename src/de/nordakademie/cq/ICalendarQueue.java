@@ -1,6 +1,6 @@
 package de.nordakademie.cq;
 
-import de.nordakademie.IEventQueue;
+import de.nordakademie.model.event.IEventQueue;
 
 public interface ICalendarQueue<E> {
 

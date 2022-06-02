@@ -1,6 +1,10 @@
-package de.nordakademie.dostBinary;
+package de.nordakademie.cq.cqImpl;
 
-public class BinarySearchTree {
+import de.nordakademie.model.event.impl.Event;
+
+public class BinarySearchTreeCQ {
+
+
     public static class Tree{
         Event key;
         private Tree left;
@@ -26,7 +30,7 @@ public class BinarySearchTree {
                 return root;
             }
             if(timestamp < root.key.getTimestamp()){
-               root.left = deleteRecursive(root.left, timestamp);
+                root.left = deleteRecursive(root.left, timestamp);
             } else if (timestamp > root.key.getTimestamp()) {
                 root.right = deleteRecursive(root.right, timestamp);
             } else {
@@ -49,11 +53,13 @@ public class BinarySearchTree {
             return minval;
         }
         protected void insert(Event key){
+
             root = insertRecursive(root, key);
         }
         private Tree insertRecursive(Tree root, Event key){
             if(null == root){
-                return new Tree(key.getTimestamp(), key.getEventDescription());
+                root = new Tree(key.getTimestamp(), key.getEventDescription());
+                return root;
             }
             if(key.getTimestamp() < root.key.getTimestamp()){
                 root.left = insertRecursive(root.left, key);
@@ -63,7 +69,6 @@ public class BinarySearchTree {
             return root;
         }
         protected void inorder(){
-
             inorderRecursive(root);
         }
         private void inorderRecursive(Tree root){
