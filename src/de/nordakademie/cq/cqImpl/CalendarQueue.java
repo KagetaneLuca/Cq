@@ -10,7 +10,6 @@ import java.util.*;
 
 public class CalendarQueue implements ICalendarQueue<Object> {
     //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
-    // nearFuture z.B. 1/10 vom SplayTree
     private List<Event> farFutrure = new LinkedList<>();
     private List<Event> nearFuture = new ArrayList<>();
     private Splaytree.Tree tree = new Splaytree.Tree();
@@ -27,13 +26,13 @@ public class CalendarQueue implements ICalendarQueue<Object> {
     @Override
     public void enqueue(Double time, String eventDes) {
         if(tree.size(tree) > size){
-
             farFutrure.add(new Event(time, eventDes));
-        }
-        if (nearFuture.size() < tree.size(tree)/ 100 || nearFuture.size() < 10) { // move e from splaytree to arraylist
+        }else if (nearFuture.size() < tree.size(tree)/ 100 || nearFuture.size() < 10) { // move e from splaytree to arraylist
             tree.insert(new Event(time, eventDes));
-//            nearFutureEnqueue();
+            nearFutureEnqueue();
             Collections.sort(nearFuture, Comparator.comparingDouble(Event::getTimestamp));
+        }else{
+            tree.insert(new Event(time, eventDes));
         }
     }
 
@@ -41,6 +40,10 @@ public class CalendarQueue implements ICalendarQueue<Object> {
         for (int i = 0; i < tree.size(tree) /10 - nearFuture.size(); i++) {
             nearFuture.add(tree.smallestElement(tree));
         }
+    }
+
+    public int size(){
+        return tree.size(tree);
     }
 
     /**
@@ -62,20 +65,18 @@ public class CalendarQueue implements ICalendarQueue<Object> {
         }
 
         /**
-         * @return Double
+         * @return Time
          */
         @Override
         public Double getTime() {
 
             return time;
         }
-
         /**
-         * @return Object
+         * @return Event
          */
         @Override
         public Object getEvent() {
-
             return event;
         }
     }

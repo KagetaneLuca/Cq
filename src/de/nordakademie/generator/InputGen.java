@@ -6,6 +6,10 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class InputGen {
+    // expo verteilung
+    // camel vert
+    // BiModale?
+    // springframwaork , autwired von zufallszahlenverteilung
     private List<Double> randomDouble = new ArrayList<>();
 
     private Random rand = ThreadLocalRandom.current();
