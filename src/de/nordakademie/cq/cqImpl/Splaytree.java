@@ -4,6 +4,12 @@ package de.nordakademie.cq.cqImpl;
 import de.nordakademie.model.event.impl.Event;
 
 public class Splaytree {
+
+    /*
+    time mit timestamp eins zu eins ersetzen
+    sortiert timestamp values zusammen addieren und das als time ersatz verwenden
+        YYYY MM/10 DD/100 HH/1000 MM/10000
+     */
     public static class Tree {
         Event key;
         private Tree left;

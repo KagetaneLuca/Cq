@@ -1,6 +1,6 @@
 package de.nordakademie.experiment;
 
-import de.nordakademie.model.eventqueue.IEventQueue;
+import de.nordakademie.cq.IQueue;
 import de.nordakademie.generator.InputGen;
 
 import java.lang.management.ManagementFactory;
@@ -59,7 +59,7 @@ public class ExperimentCalenderQueue {
         times = new LinkedList<>();
         startTime = System.nanoTime();
         for (int i = 1; i <= repetitions; i++) {
-            IEventQueue.Entry<Object> event = calendarQueue.dequeue();
+            IQueue.Entry<Double, Object> event = calendarQueue.dequeue();
             calendarQueue.enqueue(datasetEva.get(i), datasetEvaString.get(i));
 
             if ((i % 1000) == 0) {
