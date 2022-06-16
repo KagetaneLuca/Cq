@@ -70,7 +70,6 @@ public class ExperimentCalenderQueue {
         }
         return times;
     }
-
     public List<Long> upDown(int initialSize) {
         calendarQueue = new CalendarQueue(initialSize);
         times = new LinkedList<>();
@@ -81,7 +80,7 @@ public class ExperimentCalenderQueue {
         endTime = System.nanoTime();
         times.add(endTime - startTime);
         startTime = System.nanoTime();
-        for (int i = 0; i < calendarQueue.size(); i++) {
+        for (int i = 0; i < calendarQueue.treeSize(); i++) {
             calendarQueue.dequeue();
         }
         endTime = System.nanoTime();
