@@ -2,17 +2,21 @@ package de.nordakademie.cq.cqImpl;
 
 
 import de.nordakademie.model.event.impl.Event;
+
+import java.util.GregorianCalendar;
 /*
    time mit timestamp eins zu eins ersetzen
    sortiert timestamp values zusammen addieren und das als time ersatz verwenden
-       YYYY MM/10 DD/100 HH/1000 MM/10000
+       YYYY MM/100 DD/100 HH/1000 MM/10000
+       YYYY * 1000 MM*10 DD HH/100 +MM/10000
     */
+
 class Node {
     Event key;
     Node left;
     Node right;
     Node parent;
-    protected Node(double time, String event) {
+    protected Node(GregorianCalendar time, String event) {
         key = new Event(time, event);
         left = null;
         right = null;
@@ -33,7 +37,7 @@ public static class Splaytree {
             Node rightChild = null;
             Node leftChild = null;
             while (node != null && node.key.getTimestamp() != key.getTimestamp()){
-                if (node.key.getTimestamp() < key.getTimestamp()) { // warum wird das gemacht? wirkt wie der fehler
+                if (node.key.getTimestamp().before( key.getTimestamp())) {
                     node = node.right;
                 } else {
                     node = node.left;
@@ -103,7 +107,7 @@ public static class Splaytree {
 
             while (x != null) {
                 y = x;
-                if (node.key.getTimestamp() < x.key.getTimestamp()) {
+                if (node.key.getTimestamp().before(x.key.getTimestamp())) {
                     x = x.left;
                 } else {
                     x = x.right;
@@ -113,7 +117,7 @@ public static class Splaytree {
             node.parent = y;
             if (y == null) {
                 root = node;
-            } else if (node.key.getTimestamp() < y.key.getTimestamp()) {
+            } else if (node.key.getTimestamp().before(y.key.getTimestamp())) {
                 y.left = node;
             } else {
                 y.right = node;
@@ -123,10 +127,10 @@ public static class Splaytree {
         }
 
         public Node search(Node node, Event key) {
-            if (null == node || node.key.getTimestamp() == key.getTimestamp()) {
+            if (null == node || node.key.getTimestamp().equals(key.getTimestamp())) {
                 return node;
             }
-            if (node.key.getTimestamp() > key.getTimestamp()) {
+            if (node.key.getTimestamp().after(key.getTimestamp())) {
                 return search(node.left, key);
             }
             return search(node.right, key);

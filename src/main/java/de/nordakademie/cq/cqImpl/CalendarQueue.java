@@ -5,7 +5,7 @@ import de.nordakademie.model.event.impl.Event;
 
 import java.util.*;
 
-public class CalendarQueue implements IQueue<Double, Object> {
+public class CalendarQueue implements IQueue<GregorianCalendar, Object> {
     //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
     private List<Event> farFutrure = new LinkedList<>();
     private List<Event> nearFuture = new ArrayList<>();
@@ -23,7 +23,7 @@ public class CalendarQueue implements IQueue<Double, Object> {
      * @param eventDes
      */
     @Override
-    public void enqueue(Double time, String eventDes) {
+    public void enqueue(GregorianCalendar time, String eventDes) {
         if ( treeSize() >= size) {
             farFutrure.add(new Event(time, eventDes));
             return;
@@ -33,8 +33,8 @@ public class CalendarQueue implements IQueue<Double, Object> {
             Node note = splaytree.minimum();
             Event smallestTreeEvent = new Event(note.key.getTimestamp(), note.key.getEventDescription());
             nearFuture.add(smallestTreeEvent);
-            Collections.sort(nearFuture, Comparator.comparingDouble(Event::getTimestamp));
-            splaytree.deleteEvent(smallestTreeEvent); // node?? was ist das genau , kann man das ohne note para machen, in der impl von root? nehmen
+            Collections.sort(nearFuture, Comparator.comparing(Event::getTimestamp));
+            splaytree.deleteEvent(smallestTreeEvent);
         }
     }
 
@@ -46,7 +46,7 @@ public class CalendarQueue implements IQueue<Double, Object> {
      * @return Event that was removed
      */
     @Override
-    public IQueue.Entry<Double, Object> dequeue() {
+    public IQueue.Entry<GregorianCalendar, Object> dequeue() {
         Event event;
         if (!nearFuture.isEmpty()) {
             event = nearFuture.remove(0);
@@ -77,12 +77,12 @@ public class CalendarQueue implements IQueue<Double, Object> {
         return false; // remove
     }
 
-    private static class EntryImpl<Object> implements IQueue.Entry<Double, Object> {
+    private static class EntryImpl<Object> implements IQueue.Entry<GregorianCalendar, Object> {
 
-        private final Double time;
+        private final GregorianCalendar time;
         private final Object event;
 
-        public EntryImpl(Double time, Object event) {
+        public EntryImpl(GregorianCalendar time, Object event) {
             this.time = time;
             this.event = event;
         }
@@ -91,7 +91,7 @@ public class CalendarQueue implements IQueue<Double, Object> {
          * @return Time
          */
         @Override
-        public Double getTime() {
+        public GregorianCalendar getTime() {
 
             return time;
         }

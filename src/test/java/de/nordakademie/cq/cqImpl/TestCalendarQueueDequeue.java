@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.GregorianCalendar;
+
 public class TestCalendarQueueDequeue {
     private CalendarQueue calendarQueue;
 
@@ -19,12 +21,12 @@ public class TestCalendarQueueDequeue {
         calendarQueue = new CalendarQueue(10);
         elementNumber = 0.;
         for (int i = 0; i < 10; i++) {
-            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
+//            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
             Assertions.assertEquals(i+1, calendarQueue.getNearFuture().size(), "near future enqueue "+i);
             Assertions.assertEquals(0, calendarQueue.getFarFutrure().size(),"far future size unchanged");
             elementNumber++;
         }
-       IQueue.Entry<Double, Object> dequeueElement = calendarQueue.dequeue();
+       IQueue.Entry<GregorianCalendar, Object> dequeueElement = calendarQueue.dequeue();
         Assertions.assertEquals(0, dequeueElement.getTime());
     }
 }
