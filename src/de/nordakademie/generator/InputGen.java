@@ -6,21 +6,21 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class InputGen {
-    // expo verteilung
-    // camel vert
-    // BiModale?
-    // springframwaork , autwired von zufallszahlenverteilung
-    private List<Double> randomDouble = new ArrayList<>();
 
-    private Random rand = ThreadLocalRandom.current();
+
+
     public static void main(String[] args) {
-        int datasetCount = 100000;
+        int datasetCount = 1000000;
+        int datasetEvaCount = datasetCount/10;
         InputGen inputGen = new InputGen();
-        inputGen.generateDouble(datasetCount);
-        inputGen.writeToFile();
+        List<Double> randomDouble = inputGen.generateDouble(datasetCount);
+        inputGen.writeToFile("datasetRdm.txt", randomDouble);
+        randomDouble = inputGen.generateDouble(datasetEvaCount);
+        inputGen.writeToFile("datasetEvaRdm.txt", randomDouble);
     }
 
-    public void generateDouble(int n){
+    public List<Double> generateDouble(int n){
+        List<Double> randomDouble = new ArrayList<>();
         randomDouble.add(ThreadLocalRandom.current().nextGaussian());
         double rdmValue;
         for (int i = 0; i < n;) {
@@ -30,13 +30,15 @@ public class InputGen {
                 i++;
             }
         }
+        randomDouble.remove(0);
+        return randomDouble;
     }
-    public void writeToFile(){
+    public void writeToFile(String filename, List<Double> randomDoubleList){
         try {
-            FileWriter file = new FileWriter("datasetRdm.txt");
+            FileWriter file = new FileWriter(filename);
             BufferedWriter writer = new BufferedWriter(file);
-            for (int i = 0; i< randomDouble.size(); i++) {
-                writer.write(randomDouble.get(i).toString() + "\n");
+            for(int i = 0; i< randomDoubleList.size(); i++) {
+                writer.write(randomDoubleList.get(i).toString() + "\n");
             }
             writer.flush();
             writer.close();
@@ -45,11 +47,12 @@ public class InputGen {
         }
     }
 
-    public List<Double> readToList(String filename, long size) {
+    public List<Double> readToList(String filename, int size) {
         try {
             List<Double> fileInput = new ArrayList<>();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
-            for (int i = 0; i <= size && bufferedReader.ready(); i++) {
+
+            while (bufferedReader.ready() && fileInput.size() <= size) {
                 fileInput.add(Double.valueOf(bufferedReader.readLine()));
             }
             return fileInput;
