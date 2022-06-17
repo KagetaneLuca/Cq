@@ -7,7 +7,7 @@ import java.util.*;
 
 public class CalendarQueue implements IQueue<GregorianCalendar, Object> {
     //    private PriorityQueue queue = new PriorityQueue(); <- rev. zu prio
-    private List<Event> farFutrure = new LinkedList<>();
+    private List<Event> farFuture = new LinkedList<>();
     private List<Event> nearFuture = new ArrayList<>();
     private Node.Splaytree splaytree = new Node.Splaytree();
     private final int nearFutureMaxSize = 10;
@@ -25,7 +25,7 @@ public class CalendarQueue implements IQueue<GregorianCalendar, Object> {
     @Override
     public void enqueue(GregorianCalendar time, String eventDes) {
         if ( treeSize() >= size) {
-            farFutrure.add(new Event(time, eventDes));
+            farFuture.add(new Event(time, eventDes));
             return;
         }
         splaytree.insert(new Event(time, eventDes));
@@ -55,8 +55,8 @@ public class CalendarQueue implements IQueue<GregorianCalendar, Object> {
             event = splaytree.minimum().key;
             splaytree.deleteEvent(event);
             return new EntryImpl<>(event.getTimestamp(), event.getEventDescription());
-        } else if (!farFutrure.isEmpty()) {
-            event = farFutrure.remove(0);
+        } else if (!farFuture.isEmpty()) {
+            event = farFuture.remove(0);
             return new EntryImpl<>(event.getTimestamp(), event.getEventDescription());
         }
         return null;
@@ -105,8 +105,8 @@ public class CalendarQueue implements IQueue<GregorianCalendar, Object> {
         }
     }
 
-    public List<Event> getFarFutrure() {
-        return farFutrure;
+    public List<Event> getFarFuture() {
+        return farFuture;
     }
 
     public List<Event> getNearFuture() {

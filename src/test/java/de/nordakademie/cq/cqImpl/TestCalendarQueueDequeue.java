@@ -1,7 +1,6 @@
 package de.nordakademie.cq.cqImpl;
 
 import de.nordakademie.cq.IQueue;
-import de.nordakademie.model.event.impl.Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ public class TestCalendarQueueDequeue {
         for (int i = 0; i < 10; i++) {
 //            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
             Assertions.assertEquals(i+1, calendarQueue.getNearFuture().size(), "near future enqueue "+i);
-            Assertions.assertEquals(0, calendarQueue.getFarFutrure().size(),"far future size unchanged");
+            Assertions.assertEquals(0, calendarQueue.getFarFuture().size(),"far future size unchanged");
             elementNumber++;
         }
        IQueue.Entry<GregorianCalendar, Object> dequeueElement = calendarQueue.dequeue();

@@ -10,15 +10,10 @@ public class InputGen {
     // BiModale?
     // springframwaork , autowired von zufallszahlenverteilung
     private List<Double> randomDouble = new ArrayList<>();
-    /*
-       A List of Dates between year 2000 and 2100.
-     */
-    private List<GregorianCalendar> randomDate = new ArrayList<>();
-    private GregorianCalendar gregorianCalendar = new GregorianCalendar();
     private List<Date> listDates = new ArrayList<>();
 
     public static void main(String[] args) {
-        int datasetCount = 10;
+        int datasetCount = 100000;
         InputGen inputGen = new InputGen();
         String nameDatasetRdm = "datasetRdm";
         String nameDatasetEvaRdm = "datasetEvaRdm";
@@ -28,9 +23,9 @@ public class InputGen {
             0 = double values
             1 = date values
          */
-        int typeChoise = 1;
+        int typeChoice = 1;
         inputGen.generateDate(datasetCount);
-        inputGen.writeToFile(typeChoise, nameDatasetDateRdm);
+        inputGen.writeToFile(typeChoice, nameDatasetDateRdm);
     }
 
     public void generateDouble(int n) {
@@ -46,24 +41,14 @@ public class InputGen {
     }
 
     public void generateDate(int n) { // zweites list element wird immer überschrieben endlos-schleife
-        Date date = new Date();
         genADate();
-        randomDate.add(gregorianCalendar);
-        boolean validDateFlag = true;
         while(listDates.size() < n) {
             genADate();
-            for (int i = 0; i < randomDate.size(); i++) {
-
+            for (int i = 0; i < listDates.size(); i++) {
                 if (listDates.get(i).equalTo(listDates.get(listDates.size()-1))) {
                     listDates.remove(listDates.size() - 1);
-                    validDateFlag = false;
                     break;
                 }
-            }
-            if (validDateFlag) {
-                randomDate.add(gregorianCalendar);
-            }else{
-                validDateFlag = true;
             }
         }
     }
@@ -85,7 +70,6 @@ public class InputGen {
         int hour = ThreadLocalRandom.current().nextInt(0, 24);
         int minute = ThreadLocalRandom.current().nextInt(0, 60);
         listDates.add(new Date(year, month, day, hour, minute));
-        gregorianCalendar.set(year, month, day, hour, minute);
     }
 
     public void writeToFile(int typechoise, String fileName) {

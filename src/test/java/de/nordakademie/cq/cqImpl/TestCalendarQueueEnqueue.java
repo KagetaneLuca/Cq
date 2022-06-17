@@ -3,7 +3,6 @@ package de.nordakademie.cq.cqImpl;
 import org.junit.jupiter.api.*;
 
 import java.util.GregorianCalendar;
-import java.util.Date;
 
 public class TestCalendarQueueEnqueue {
 private CalendarQueue calendarQueue;
@@ -44,13 +43,13 @@ private Double elementNumber = 0D;
         for (int i = 0; i < 10; i++) {
 //            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
             Assertions.assertEquals(i+1, calendarQueue.getNearFuture().size(), "near future enqueue "+i);
-            Assertions.assertEquals(0, calendarQueue.getFarFutrure().size(),"far future size unchanged");
+            Assertions.assertEquals(0, calendarQueue.getFarFuture().size(),"far future size unchanged");
             elementNumber++;
         }
         for (int i = 0; i < 10; i++) {
 //            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
             Assertions.assertEquals(10, calendarQueue.getNearFuture().size(), "near future constant size");
-            Assertions.assertEquals(0, calendarQueue.getFarFutrure().size(),"far future size unchanged");
+            Assertions.assertEquals(0, calendarQueue.getFarFuture().size(),"far future size unchanged");
             Assertions.assertEquals(1+ i, calendarQueue.getTree().size(calendarQueue.getTree().root), "mid future enqueue "+i);
 
             elementNumber++;
@@ -59,9 +58,9 @@ private Double elementNumber = 0D;
 //            calendarQueue.enqueue(elementNumber, String.valueOf(elementNumber));
             Assertions.assertEquals(10, calendarQueue.getNearFuture().size(), "near future constant size");
             Assertions.assertEquals(10, calendarQueue.getTree().size(calendarQueue.getTree().root), "mid future constant size");
-            Assertions.assertEquals(i + 1, calendarQueue.getFarFutrure().size(),"far future enqueue");
+            Assertions.assertEquals(i + 1, calendarQueue.getFarFuture().size(),"far future enqueue");
             elementNumber++;
         }
-        Assertions.assertEquals("20.0", calendarQueue.getFarFutrure().get(0).getEventDescription());
+        Assertions.assertEquals("20.0", calendarQueue.getFarFuture().get(0).getEventDescription());
     }
 }
