@@ -1,18 +1,20 @@
 package de.nordakademie.experiment;
 
-import de.nordakademie.model.eventqueue.IEventQueue;
+import de.nordakademie.cq.IQueue;
 import de.nordakademie.generator.InputGen;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
+import java.util.GregorianCalendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
 import de.nordakademie.cq.cqImpl.CalendarQueue;
 
 public class ExperimentCalenderQueue {
-    private List<Double> dataset;
-    private List<Double> datasetEva;
+    private List<GregorianCalendar> dataset;
+    private List<GregorianCalendar> datasetEva;
     private List<String> datasetString;
     private List<String> datasetEvaString;
     private List<Long> times;
@@ -30,10 +32,10 @@ public class ExperimentCalenderQueue {
         datasetEvaString = new LinkedList<>();
         dataset = inputGen.readToList("datasetRdm.txt", initialSize);
         datasetEva = inputGen.readToList("datasetEvaRdm.txt", initialSize);
-        for (Double dataElement : dataset) {
+        for (GregorianCalendar dataElement : dataset) {
             datasetString.add(String.valueOf(dataElement));
         }
-        for (Double dataElement : datasetEva) {
+        for (GregorianCalendar dataElement : datasetEva) {
             datasetEvaString.add(String.valueOf(dataElement));
         }
 
@@ -59,7 +61,7 @@ public class ExperimentCalenderQueue {
         times = new LinkedList<>();
         startTime = System.nanoTime();
         for (int i = 1; i <= repetitions; i++) {
-            IEventQueue.Entry<Object> event = calendarQueue.dequeue();
+            IQueue.Entry<GregorianCalendar, Object> event = calendarQueue.dequeue();
             calendarQueue.enqueue(datasetEva.get(i), datasetEvaString.get(i));
 
             if ((i % 1000) == 0) {
@@ -70,7 +72,6 @@ public class ExperimentCalenderQueue {
         }
         return times;
     }
-
     public List<Long> upDown(int initialSize) {
         calendarQueue = new CalendarQueue(initialSize);
         times = new LinkedList<>();
@@ -81,7 +82,7 @@ public class ExperimentCalenderQueue {
         endTime = System.nanoTime();
         times.add(endTime - startTime);
         startTime = System.nanoTime();
-        for (int i = 0; i < calendarQueue.size(); i++) {
+        for (int i = 0; i < calendarQueue.treeSize(); i++) {
             calendarQueue.dequeue();
         }
         endTime = System.nanoTime();

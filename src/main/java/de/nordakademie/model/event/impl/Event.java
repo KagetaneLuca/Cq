@@ -1,15 +1,17 @@
 package de.nordakademie.model.event.impl;
 
+import java.util.GregorianCalendar;
+
 public class Event {
-    private final double timestamp;
+    private final GregorianCalendar timestamp;
     private final String eventDescription;
     
-    public Event(double timestamp, String eventDescription) {
+    public Event(GregorianCalendar timestamp, String eventDescription) {
         this.timestamp = timestamp;
         this.eventDescription = eventDescription;
     }
 
-    public double getTimestamp() {
+    public GregorianCalendar getTimestamp() {
         return timestamp;
     }
 
