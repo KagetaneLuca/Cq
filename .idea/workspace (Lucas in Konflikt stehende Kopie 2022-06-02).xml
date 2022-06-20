@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f3c0d5c3-2865-4393-9777-a66cf1518271" name="Changes" comment="removed dataset from commit">
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/Experiment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/Experiment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/BinarySearchTreeCQ$Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/BinarySearchTreeCQ.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/CalendarQueue$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/CalendarQueue$EntryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/CalendarQueue$EntryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/CalendarQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/CalendarQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/ExperimentCalenderQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/ExperimentCalenderQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/ICalendarQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/cq/ICalendarQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/safe/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalendarQueue/de/nordakademie/safe/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/cq/BinarySearchTreeCQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/cq/Splaytree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/cq/CalendarQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/cq/CalendarQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/cq/ExperimentCalenderQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/cq/ExperimentCalenderQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/cq/ICalendarQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/cq/ICalendarQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/cq/SelfComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/generator/InputGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/generator/InputGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/nordakademie/safe/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/nordakademie/safe/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="8f03ab661ec563717187c65396c5283d91652056" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28QVUu6ZHlgLEtuWiNXR3ND7LTP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dostl/Dropbox/Uni/2. Semester/OOP/workspace/CalendarQueue&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.norakademie" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.nordakademie.cq" />
+      <recent name="de.norakademie.safe" />
+      <recent name="de.norakademie.binary" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Measurement">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.nordakademie.safe.Main" />
+      <module name="CalendarQueue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.nordakademie.safe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Measurement-NO-JIT" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="de.nordakademie.Main" />
+      <module name="CalendarQueue" />
+      <option name="VM_PARAMETERS" value="-Djava.compiler=NONE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.nordakademie.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Measurement" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="de.nordakademie.Main" />
+      <module name="CalendarQueue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.nordakademie.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="de.nordakademie.Experiment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.nordakademie.Experiment" />
+      <module name="CalendarQueue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.nordakademie.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="de.nordakademie.generator.InputGen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.nordakademie.generator.InputGen" />
+      <module name="CalendarQueue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.nordakademie.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Measurement" />
+      <item itemvalue="Application.de.nordakademie.Experiment" />
+      <item itemvalue="Application.de.nordakademie.generator.InputGen" />
+      <item itemvalue="Application.Measurement-NO-JIT" />
+      <item itemvalue="Application.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.de.nordakademie.generator.InputGen" />
+        <item itemvalue="Application.de.nordakademie.Experiment" />
+        <item itemvalue="Application.Measurement-NO-JIT" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3c0d5c3-2865-4393-9777-a66cf1518271" name="Changes" comment="" />
+      <created>1651148817325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651148817325</updated>
+      <workItem from="1651148818512" duration="10011000" />
+      <workItem from="1651159054911" duration="4854000" />
+      <workItem from="1651216450265" duration="554000" />
+      <workItem from="1651480787585" duration="888000" />
+      <workItem from="1651500102831" duration="6995000" />
+      <workItem from="1651566023772" duration="6151000" />
+      <workItem from="1651574499667" duration="572000" />
+      <workItem from="1651576359844" duration="8902000" />
+      <workItem from="1651647590552" duration="156000" />
+      <workItem from="1651653234401" duration="613000" />
+      <workItem from="1651654227190" duration="3965000" />
+      <workItem from="1651732662678" duration="9018000" />
+      <workItem from="1651752268245" duration="9434000" />
+      <workItem from="1651819843613" duration="583000" />
+      <workItem from="1652086656392" duration="20000" />
+      <workItem from="1652097368471" duration="1120000" />
+      <workItem from="1652357882765" duration="10661000" />
+      <workItem from="1652378650687" duration="14000" />
+      <workItem from="1652385910817" duration="1517000" />
+      <workItem from="1652387462001" duration="6916000" />
+      <workItem from="1652423499770" duration="351000" />
+      <workItem from="1652449719665" duration="2400000" />
+      <workItem from="1652515710987" duration="1044000" />
+      <workItem from="1652622586922" duration="789000" />
+      <workItem from="1652722429536" duration="1381000" />
+      <workItem from="1652784601944" duration="2499000" />
+      <workItem from="1652863015275" duration="7922000" />
+      <workItem from="1652875947578" duration="1336000" />
+      <workItem from="1652888082262" duration="3957000" />
+      <workItem from="1652940190391" duration="5576000" />
+      <workItem from="1652949511459" duration="2477000" />
+      <workItem from="1652960093582" duration="1674000" />
+      <workItem from="1652962650378" duration="9852000" />
+      <workItem from="1653031616870" duration="174000" />
+      <workItem from="1653119813173" duration="7861000" />
+      <workItem from="1653138879753" duration="1477000" />
+      <workItem from="1653204361246" duration="1315000" />
+      <workItem from="1653289726814" duration="3358000" />
+      <workItem from="1653314133990" duration="15000" />
+      <workItem from="1653376557703" duration="16593000" />
+      <workItem from="1653403116484" duration="11140000" />
+      <workItem from="1653462531529" duration="2421000" />
+      <workItem from="1653474565724" duration="722000" />
+      <workItem from="1653480266259" duration="1180000" />
+      <workItem from="1653586732565" duration="623000" />
+      <workItem from="1653594201879" duration="2991000" />
+      <workItem from="1653719979159" duration="368000" />
+      <workItem from="1653720363855" duration="80000" />
+      <workItem from="1653720455074" duration="478000" />
+      <workItem from="1653720949241" duration="485000" />
+      <workItem from="1654020127697" duration="721000" />
+      <workItem from="1654021095985" duration="1136000" />
+      <workItem from="1654078557201" duration="497000" />
+      <workItem from="1654158661573" duration="13000" />
+    </task>
+    <task id="LOCAL-00001" summary="inital Commit">
+      <created>1652874825040</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652874825040</updated>
+    </task>
+    <task id="LOCAL-00002" summary="WIP change ArrayList to Event[]">
+      <created>1652888537283</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652888537283</updated>
+    </task>
+    <task id="LOCAL-00003" summary="changed ArrayList to Event[]">
+      <created>1652950489547</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652950489547</updated>
+    </task>
+    <task id="LOCAL-00004" summary="WIP Generate dataset + updated calc time ..">
+      <created>1652970697745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652970697745</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Event time comes now from a specific dataset">
+      <created>1653129437961</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653129437961</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Event time comes now from a specific dataset">
+      <created>1653129520024</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653129520024</updated>
+    </task>
+    <task id="LOCAL-00007" summary="removed dataset from commit">
+      <created>1653130481488</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653130481488</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="feature/Array" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="inital Commit" />
+    <MESSAGE value="WIP change ArrayList to Event[]" />
+    <MESSAGE value="changed ArrayList to Event[]" />
+    <MESSAGE value="WIP Generate dataset + updated calc time .." />
+    <MESSAGE value="Event time comes now from a specific dataset" />
+    <MESSAGE value="removed dataset from commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed dataset from commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/de/nordakademie/dostBinary/BinarySearchTree.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/de/nordakademie/dostBinary/BinarySearchTree.java</url>
+          <line>91</line>
+          <properties class="de.nordakademie.dostBinary.BinarySearchTree.Tree" method="size">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="de.nordakademie.cq.Splaytree$Tree" memberName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="inputGen" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
